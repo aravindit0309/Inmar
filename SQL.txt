@@ -1,0 +1,16 @@
+//Queries to get all customers name begins with joe
+select CustomerId, CustomerName from customer where CustomerName like 'Joe%'
+
+//product name ordered by joe
+Select  p.ProductName  from customer customer
+inner join orders o on C.customerid = o.customerid
+inner join OrderedProduct op on o.orderId = op.orderId
+inner join product p on op.productid = p.productid
+where c.CustomerName = 'Joe' and o.createdat > '11/1/2016' 
+
+Select sum(price)  from customer customer
+inner join orders o on C.customerid = o.customerid
+inner join OrderedProduct op on o.orderId = op.orderId
+inner join product p on op.productid = p.productid
+group by c.CustomerName = 'Joe' having count(*) > 0
+
